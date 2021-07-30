@@ -61,6 +61,9 @@ function buildContent() {
         }
         console.log(holder)
         contentDiv.value = holder
+        if (!contentDiv.value === ''){
+            contentDiv.classList.add('stored')
+        }
         $(row).append(contentDiv)
         let saveI = document.createElement('button')
         saveI.classList.add('fas')
@@ -87,6 +90,7 @@ wrapper.addEventListener('click', (event) => {
         return;
     }
     var newAdd = (event.target.id + "input")
+    newAdd.classList.add('stored')
     var addInput = document.getElementById(newAdd)
     localStorage.setItem(newAdd, addInput.value)
 })
